@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+.followings {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 28vw;
+  height: 50vh;
+  min-width: 250px;
+  min-height: 250px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.follow_title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  padding: 10px;
+  border-bottom: 1px solid black;
+}
+
+.follow_title .MuiSvgIcon-root {
+  cursor: pointer;
+}
+
+.follow_title p {
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.follow_details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 10px 10px 0px 10px;
+  overflow-y: scroll;
+}
+
+.follow_details::-webkit-scrollbar {
+  width: 6px;
+}
+
+.follow_details::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background-color: #B7B7B7;
+}
+
+.follow_scroll {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-top: 5px;
+}
+
+.follow_name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 75%;
+}
+
+.follow_name .MuISvgIcon-root {
+  width: 18px;
+  height: 18px;
+}
+
+.follow_name p {
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  margin-left: 10px;
+}
+
+.follow_btn {
+  border: none;
+  outline: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  font-size: 13px;
+  font-family: 'Open Sans', sans-serif;
+  background-color: white;
+}
+/*# sourceMappingURL=Followings.css.map */

@@ -1,0 +1,165 @@
+/*-------------------------------------------------------------------------------------------------------------------------------------------*/
+.uploadPost {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 475px;
+  height: auto;
+  background-color: white;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 10px lightgray;
+          box-shadow: 0 0 10px lightgray;
+  padding: 5px;
+}
+
+.form_input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid lightgray;
+  padding: 10px;
+}
+
+.form_input .MuiAvatar-root {
+  width: 40px;
+  height: 40px;
+  margin-left: 0px;
+  cursor: pointer;
+}
+
+.form_input input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 400px;
+  height: auto;
+  border: none;
+  outline: none;
+  border-radius: 999px;
+  background-color: #F0F2F5;
+  padding: 10px;
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+.form_upload {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+  margin-top: 10px;
+}
+
+.img_upload {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.img_upload .MuiSvgIcon-root {
+  color: #41B35D;
+  width: 32px;
+  height: 32px;
+}
+
+.img_upload:hover {
+  background-color: #F0F2F5;
+}
+
+.uplaod_btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+  border-radius: 10px;
+}
+
+.uplaod_btn p {
+  font-size: 15px;
+  margin-left: 4px;
+}
+
+.uplaod_btn .MuiSvgIcon-root {
+  color: #139AF6;
+  width: 32px;
+  height: 32px;
+}
+
+.uplaod_btn:hover {
+  background-color: #F0F2F5;
+}
+/*# sourceMappingURL=Upload.css.map */

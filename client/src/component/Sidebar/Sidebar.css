@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+.sidebar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 79vh;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 15%;
+}
+
+.header p {
+  font-size: 16px;
+  font-weight: bold;
+  color: gray;
+  letter-spacing: 1px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.sidebar_menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  padding-right: 10px;
+}
+
+.sidebar_menu::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar_menu::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background-color: #c7c5e6;
+}
+
+.sidebar_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+  height: auto;
+  margin-top: 10px;
+}
+
+.sidebar_main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 75%;
+  height: 100%;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+
+.sidebar_main p {
+  width: 100%;
+  font-size: 14px;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-left: 10px;
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.sidebar_main .MuiAvatar-root {
+  width: 39px;
+  height: 39px;
+}
+
+.sidebar_follow {
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  color: #0994f1;
+  cursor: pointer;
+}
+
+.sidebar_follow p {
+  font-family: 'Open Sans', sans-serif;
+}
+/*# sourceMappingURL=Sidebar.css.map */

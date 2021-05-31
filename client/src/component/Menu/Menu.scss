@@ -1,0 +1,128 @@
+@mixin flex ($a, $b, $c) {
+    display: flex;
+    flex-direction: $a;
+    justify-content: $b;
+    align-items: $c;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.post {
+    @include flex(column, center, center);
+    width: 100%;
+    height: auto;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    margin-top: 20px;
+    background-color: white;
+}
+
+.post_header {
+    @include flex(row, space-between, center);
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    .MuiAvatar-root {
+        width: 35px;
+        height: 35px;
+    }
+    p {
+        font-size: 13px;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+        font-family: 'Open Sans', sans-serif;
+        margin-left: 10px;
+    }
+    .MuiSvgIcon-root {
+        cursor: pointer;
+        width: 25px;
+        height: 25px;
+    }
+    div {
+        @include flex(row, center, center);
+    }
+}
+
+.post_img {
+    width: 100%;
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.post_menu {
+    @include flex(row, flex-start, center);
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    p {
+        margin-left: 10px;
+        font-size: 13px;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+        font-family: 'Open Sans', sans-serif;
+    }
+    .MuiSvgIcon-root {
+        cursor: pointer;
+        width: 28px;
+        height: 28px;
+        color: red;
+    }
+}
+
+.liked {
+    .MuiSvgIcon-root {
+        background-color: #EE5460;
+    }
+}
+
+.post_comment {
+    @include flex(row, flex-start, center);
+    width: 100%;
+    height: auto;
+    padding: 5px 10px;
+    p {
+        @include flex(row, center, center);
+        font-size: 14px;
+        font-weight: bold;
+        font-family: 'Open Sans', sans-serif;
+    }
+    span {
+        font-weight: normal;
+        margin-left: 5px;
+        font-size: 14px;
+        font-family: 'Open Sans', sans-serif;
+    }
+}
+
+.post_comments {
+    @include flex(row, space-between, center);
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    background-color: white;
+    border-top: 1px solid lightgray;
+    margin-top: 5px;
+    .MuiSvgIcon-root {
+        cursor: pointer;
+    }
+    input {
+        border: none;
+        outline: none;
+        width: 85%;
+        padding: 2px 5px;
+        font-size: 14px;
+    }
+    button {
+        border: none;
+        outline: none;
+        cursor: pointer;
+        color: #0994f1;
+        font-weight: bold;
+        padding: 2px;
+        background-color: white;
+    }
+}

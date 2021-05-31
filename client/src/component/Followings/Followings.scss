@@ -1,0 +1,84 @@
+@mixin flex ($a, $b, $c) {
+    display: flex;
+    flex-direction: $a;
+    justify-content: $b;
+    align-items: $c;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+.followings {
+    @include flex(column, center, center);
+    width: 28vw;
+    height: 50vh;
+    min-width: 250px;
+    min-height: 250px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.follow_title {
+    @include flex(row, center, center);
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px solid black;
+    .MuiSvgIcon-root {
+        cursor: pointer;
+    }
+    p {
+        font-weight: bold;
+        letter-spacing: 0.5px;
+    }
+}
+
+.follow_details {
+    @include flex(column, flex-start, center);
+    width: 100%;
+    height: 100%;
+    padding: 10px 10px 0px 10px;
+    overflow-y: scroll;
+}
+
+.follow_details::-webkit-scrollbar {
+    width: 6px;
+}
+.follow_details::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background-color: #B7B7B7; 
+}
+
+.follow_scroll {
+    @include flex(row, space-between, center);
+    width: 100%;
+    height: fit-content;
+    margin-top: 5px;
+}
+
+.follow_name {
+    @include flex(row, flex-start, center);
+    width: 75%;
+    .MuISvgIcon-root {
+        width: 18px;
+        height: 18px;
+    }
+    p {
+        font-size: 13px;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+        margin-left: 10px;
+    }
+}
+
+.follow_btn {
+    border: none;
+    outline: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    font-size: 13px;
+    font-family: 'Open Sans', sans-serif;
+    background-color: white;
+}

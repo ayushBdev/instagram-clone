@@ -1,0 +1,57 @@
+.home {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.navbar_div {
+  width: 100%;
+  height: auto;
+}
+
+.main_div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0px 10vw;
+  background-color: #FAFAFA;
+}
+
+.menu_div {
+  width: 40vw;
+  height: 89vh;
+  overflow-y: scroll;
+}
+
+.menu_div::-webkit-scrollbar {
+  display: none;
+}
+
+.sidebar_div {
+  width: 25vw;
+  height: 100%;
+}
+/*# sourceMappingURL=Home.css.map */

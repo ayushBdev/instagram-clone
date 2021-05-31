@@ -1,0 +1,87 @@
+@mixin flex ($a, $b, $c) {
+    display: flex;
+    flex-direction: $a;
+    justify-content: $b;
+    align-items: $c;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+.sidebar {
+    @include flex(column, center, center);
+    width: 100%;
+    height: 79vh;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 15%;
+}
+
+.header {
+    p {
+        font-size: 16px;
+        font-weight: bold;
+        color: gray;
+        letter-spacing: 1px;
+        font-family: 'Open Sans', sans-serif;
+    }
+}
+
+.sidebar_menu {
+    @include flex(column, flex-start, center);
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    padding-right: 10px;
+}
+
+.sidebar_menu::-webkit-scrollbar {
+    width: 6px;
+}
+.sidebar_menu::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background-color: #c7c5e6; 
+}
+
+.sidebar_container {
+    @include flex(row, space-between, center);
+    width: 100%;
+    height: 100%;
+    height: auto;
+    margin-top: 10px;
+}
+
+.sidebar_main {
+    @include flex(row, center, center)
+    width: 75%;
+    height: 100%;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    p {
+        width: 100%;
+        font-size: 14px;
+        font-weight: bold;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-left: 10px;
+        font-family: 'Open Sans', sans-serif;
+        letter-spacing: 0.5px;
+    }
+    .MuiAvatar-root {
+        width: 39px;
+        height: 39px;
+    }
+}
+
+.sidebar_follow {
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    color: #0994f1;
+    cursor: pointer;
+    p {
+        font-family: 'Open Sans', sans-serif;
+    }
+}

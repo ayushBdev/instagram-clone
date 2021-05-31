@@ -1,0 +1,99 @@
+@mixin flex ($a, $b) {
+    display: flex;
+    justify-content: $a;
+    align-items: $b;
+}
+
+.navbar {
+    @include flex(space-around, center);
+    width: 100%;
+    height: auto;
+    border: 1px solid rgb(226, 208, 208);
+    padding: 5px 10px;
+    background-color: white;
+}
+
+.logo {
+    @include flex(center, center);
+    cursor: pointer;
+    text-decoration: none;
+    img {
+        width: 40px;
+    }
+    p {
+        color:  black;
+        margin-left: 10px;
+        font-size: 18px;
+    }
+}
+
+.add {
+    @include flex(center, center);
+    border: none;
+    outline: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: 10px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    p {
+        font-size: 15px;
+        margin-left:4px;
+    }
+    .MuiSvgIcon-root {
+        color: #139AF6;
+        width: 32px;
+        height: 32px;
+    }
+    &:hover {
+        border: 1px solid gray;
+    }
+}
+
+.input_div {
+    @include flex(center, center);
+    width: 20vw;
+    min-width: 250px;
+    background-color: #FAFAFA;
+    border: 1px solid #DBDBDB;
+    border-radius: 5px;
+    padding: 0px 5px;
+    input {
+        border: none;
+        outline: none;
+        width: 100%;
+        padding: 5px;
+        font-size: 15px;
+        border-radius: 5px;
+        background-color: #FAFAFA;
+    }
+    .MuiSvgIcon-root {
+        width: 18px;
+        height: 18px;
+        color: gray;
+    }
+    ::placeholder {
+        color: gray;
+        font-size: 14px;
+    }
+}
+
+.navbar_menu {
+    @include flex(space-between, center);
+    width: auto;
+    min-width: 200px;
+    .navbar_link {
+        @include flex(center, center); 
+        cursor: pointer;
+        text-decoration: none;
+        color: black;
+        p {
+            width: 120px;
+            font-size: 15px;
+            margin-left: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+}

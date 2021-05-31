@@ -1,0 +1,40 @@
+@mixin flex ($a, $b, $c) {
+    display: flex;
+    flex-direction: $a;
+    justify-content: $b;
+    align-items: $c;
+}
+
+.home {
+    @include flex(column, flex-start, center);
+    width: 100vw;
+    height: 100vh;
+}
+
+.navbar_div {
+    width: 100%;
+    height: auto;
+}
+
+.main_div {
+    @include flex(row, space-around, center);
+    width: 100%;
+    height: 100%;
+    padding: 0px 10vw;
+    background-color: #FAFAFA;
+}
+
+.menu_div {
+    width: 40vw;
+    height: 89vh;
+    overflow-y: scroll
+}
+
+.menu_div::-webkit-scrollbar {
+    display: none;
+}
+
+.sidebar_div {
+    width: 25vw;
+    height: 100%;
+}
