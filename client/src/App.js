@@ -1,17 +1,19 @@
 import React from "react";
+
 import Home from "./component/Home/Home";
 import Upload from "./component/Upload/Upload";
 import Profile from "./component/Profile/Profile";
 import Auth from "./component/Auth/Auth";
+import Error from "./component/Error/Error";
 
 import { Switch, Route } from "react-router-dom";
-import ReactNotification from 'react-notifications-component';
-import 'react-notifications-component/dist/theme.css';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
     return (<>
             
-        <ReactNotification />
+        <ToastContainer />
 
         <Switch>
 
@@ -19,6 +21,7 @@ const App = () => {
             <Route path="/auth" component={Auth} exact/>
             <Route path="/profile/:id" component={Profile} exact/>
             <Route path="/upload" component={Upload} exact/>
+            <Route component={Error} exact/>
 
         </Switch>
     </>);

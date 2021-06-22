@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import "./Upload.css";
+
 import { Avatar} from '@material-ui/core';
 import ImageIcon from '@material-ui/icons/Image';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 
 import { dates } from "../TimeStamp/Timestamp";
 import { createPost } from "../#Redux/Actions/Post_Action";
+
 import FileBase from "react-file-base64";
 import { useDispatch } from "react-redux";
-import { posted } from "../Notifications/Notifications";
 
 const Upload = () => {
 
@@ -21,6 +22,7 @@ const Upload = () => {
     };
 
     const user = JSON.parse(localStorage.getItem("profile"));
+
     const [postData, setPostData] = useState(initialState);
 
     const dispatch = useDispatch();
@@ -28,7 +30,6 @@ const Upload = () => {
     const handelPost = async(event) => {
         event.preventDefault();
         dispatch(createPost(postData));
-        posted();
     };
 
 

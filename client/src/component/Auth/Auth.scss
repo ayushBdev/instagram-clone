@@ -13,6 +13,7 @@
     height: 100vh;
     background-color: #FAFAFA;
     font-size: 15px;
+    position: relative;
 }
 
 .logo_img {
@@ -68,6 +69,11 @@
             font-size: 16px;
             border-radius: 5px;
             background-color: #FAFAFA;
+            &::placeholder {
+                font-size: 14px;
+                color: gray;
+            }
+            
         }
         .MuiSvgIcon-root {
             cursor: pointer;
@@ -98,7 +104,12 @@
     color: #8E15FB;
 }
 
-::placeholder {
-    font-size: 14px;
-    color: gray;
+.loader {
+    position: absolute;
+    opacity: 1;
+    z-index: 999;
+}
+
+.opacitys {
+    opacity: 0.5;
 }

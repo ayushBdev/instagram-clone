@@ -2,12 +2,13 @@ import express from "express";
 import mongoose from "mongoose";
 import bodyparser from "body-parser";
 import cors from "cors";
-import Pusher from "pusher";
 import dotenv from "dotenv";
+import Pusher from "pusher";
+
 dotenv.config({path: "./.env"});
 
-import authRoute from "./Routes/Auth_Routes.js";
-import postRoute from "./Routes/Post_Routes.js";
+import authRoute from "./backend/Routes/Auth_Routes.js";
+import postRoute from "./backend/Routes/Post_Routes.js";
 
 const app = express();
 
@@ -32,13 +33,13 @@ const pusher = new Pusher({
     cluster: process.env.cluster,
     useTLS: true
 });
-
+    
 const db = mongoose.connection;
-
+    
 db.once("open", () => {
-
+    
     console.log("DB connected");
-
+    
     const postCollection = db.collection("postschemas");
     const changeStream = postCollection.watch();
 
@@ -62,7 +63,7 @@ db.once("open", () => {
             }
         }
     });
-
+    
     //---------------------------------------------------------------------------------------------------
 
     const usersCollection = db.collection("authusers");

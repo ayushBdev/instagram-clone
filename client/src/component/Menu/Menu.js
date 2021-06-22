@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import "./Menu.css";
-import img from "../#Images/img1.jpg";
-import img3 from "../#Images/img3.png";
+
+import { avatar2 } from "../Images/Images";
 import { Avatar } from "@material-ui/core";
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import MoodOutlinedIcon from '@material-ui/icons/MoodOutlined';
 
+import pusher from "../Pusher/Pusher";
 import { addComments, likePosts } from "../#Redux/Actions/Post_Action";
-import { useDispatch } from "react-redux";
-import Pusher from "pusher-js";
 import API from "../#Api/Api";
+
+import { useDispatch } from "react-redux";
+import Loader from "react-loader-spinner";
 
 const Menu = () => {
 
@@ -37,10 +39,6 @@ const Menu = () => {
     };
 
     useEffect(() => {
-        const pusher = new Pusher(process.env.REACT_APP_PUSHER, {
-            cluster: process.env.REACT_APP_CLUSTER
-        });
-    
         const channels = pusher.subscribe("posts");
             channels.bind("inserted", ((data) => {
                 setPost([...post, data]);
@@ -52,10 +50,6 @@ const Menu = () => {
     }, []);
 
     useEffect(() => {
-        const pusher = new Pusher(process.env.REACT_APP_PUSHER, {
-            cluster: process.env.REACT_APP_CLUSTER
-        });
-    
         const channels = pusher.subscribe("posts");
             channels.bind("updated", ((data) => {
                     API.get("/posts")
@@ -77,11 +71,23 @@ const Menu = () => {
     }, []);
 
     return (<>
-        {post && post.map((val) => (
+
+        <div className="spinner">
+            <Loader
+                type="ThreeDots"
+                color="#00BFFF"
+                height={45}
+                width={45}
+                timeout={500000000}
+                visible={true}
+            />
+        </div>
+
+        {post.map((val) => (
             <div className="post" key={val._id}>
                 <div className="post_header">
                     <div>
-                        <Avatar src={img3}/>
+                        <Avatar src={avatar2}/>
                         <p> {val.postedBy} </p>
                     </div>
                     <div>
@@ -89,7 +95,7 @@ const Menu = () => {
                     </div>
                 </div>
                 <div className="post_img">
-                    <img src={val.selectedFile}/>
+                    <img src={val.selectedFile} alt=""/>
                 </div>
                 <div className="post_menu">
                     <FavoriteIcon onClick={(() => handelLike(val._id))}/>

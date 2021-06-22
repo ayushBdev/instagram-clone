@@ -7,7 +7,7 @@ const router = express.Router();
 router.post("/", Middleware,  createPosts);
 router.get("/", getPosts);
 router.get("/post/:id", getPostsById);
-router.patch("/like/:id", addLike);
-router.patch("/comment/:id", addComment);
+router.patch("/like/:id", Middleware, addLike);
+router.patch("/comment/:id", Middleware, addComment);
 
 export default router;

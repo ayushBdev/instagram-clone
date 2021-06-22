@@ -9,7 +9,8 @@ export const createPosts = async(req,res) => {
         const newPost = await PostSchema.create({ selectedFile, postedBy, uploadDate, userId });
         res.status(200).json(newPost);
     }catch(err) {
-        res.status(404).json({message: err.message});
+        res.status(404).json({message: "Something went wrong at server!!"});
+        console.log(error);
     }
 };
 
@@ -18,7 +19,8 @@ export const getPosts = async(req,res) => {
         const productInfo = await PostSchema.find().sort("-createdAt");
         res.status(200).json(productInfo);
     }catch(err) {
-        res.status(404).json({message: err.message});
+        res.status(404).json({message: "Something went wrong at server!!"});
+        console.log(error);
     }
 };
 
@@ -28,7 +30,8 @@ export const getPostsById = async(req,res) => {
         const postInfo = await PostSchema.find({userId: id}).sort("-createdAt");
         res.status(200).json(postInfo);
     }catch(err) {
-        res.status(404).json({message: err.message});
+        res.status(404).json({message: "Something went wrong at server!!"});
+        console.log(error);
     }
 };
 
@@ -37,10 +40,11 @@ export const addComment = async(req,res) => {
     const { id } = req.params;
     const { comment, postedBy } = req.body;
     try {
-        const update = await PostSchema.findByIdAndUpdate(id, {$push: {comments: {"cmt": comment, "user":postedBy}}});
+        const update = await PostSchema.findByIdAndUpdate(id, {$push: {comments: {"cmt": comment, "user":postedBy}}}, {new:true});
         res.status(200).json(update);
     }catch(err) {
-        res.status(404).json({message: err.message});
+        res.status(404).json({message: "Something went wrong at server!!"});
+        console.log(error);
     }
 };
 
@@ -48,15 +52,16 @@ export const addLike = async(req,res) => {
     const { id } = req.params;
     const { userId } = req.body;
     try {
-        const data = await PostSchema.find({like: userId});
+        const data = await PostSchema.find({_id:id, like:userId});
         if(data.length !== 0) {
-            res.status(404).json({msg: "Action already done by user"});
+            res.status(404).json({message: "This post is already liked by you"});
         } else {
             const update = await PostSchema.findByIdAndUpdate(id, {$push: {like: userId}});
             res.status(200).json(update);
         }
     }catch(err) {
-        res.status(404).json({message: err.message});
+        res.status(404).json({message: "Something went wrong at server!!"});
+        console.log(error);
     }
 };
 

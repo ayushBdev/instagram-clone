@@ -8,17 +8,17 @@ export const signin = async(req,res) => {
     const { email, password } = req.body;
     try {
         const oldUser = await AuthUsers.findOne({email});
-        if(!oldUser) return res.status(404).json({message: "User Does not exists"});
+        if(!oldUser) return res.status(404).json({message: "User Does not exists with this Email"});
         
         const isPasswordCorrect = await bcrypt.compare(password, oldUser.password);
-        if(!isPasswordCorrect) return res.status(400).json({message: "Incorrect Credentials"});
+        if(!isPasswordCorrect) return res.status(400).json({message: "Incorrect Password"});
 
         const token = jwt.sign({email: oldUser.email, id:oldUser._id}, secret, {expiresIn: "1h"});
 
         res.status(200).json({result: oldUser, token}).select(['-password']);
 
     }catch(error) {
-        res.status(404).json({message: "Something went wrong Errored!!"});
+        res.status(404).json({message: "Something went wrong at server!!"});
         console.log(error);
     }
 };
@@ -27,7 +27,7 @@ export const signup = async(req,res) => {
     const { name, email, password, createdAt, status } = req.body;
     try {
         const oldUser = await AuthUsers.findOne({email});
-        if(oldUser) return res.status(400).json({message: "User Already Exists"});
+        if(oldUser) return res.status(400).json({message: "User Already Exists with this Email"});
 
         const hashedPassword = await bcrypt.hash(password, 12);
 
@@ -36,7 +36,7 @@ export const signup = async(req,res) => {
         const token = jwt.sign({ email: result.email, id: result._id}, secret, {expiresIn: "1h"});
         res.status(200).json({result,token}).select(['-password']);
     }catch(error) {
-        res.status(404).json({message: "Something went wrong!!"});
+        res.status(404).json({message: "Input fields are empty"});
         console.log(error);
     }
 };
@@ -46,7 +46,7 @@ export const getUsers = async(req,res) => {
         const users = await AuthUsers.find().select(['-password']);
         res.status(200).json(users);
     }catch(error) {
-        res.status(404).json({message: "Something went wrong!!"});
+        res.status(404).json({message: "Something went wrong at server!!"});
         console.log(error);
     }
 };
@@ -57,7 +57,7 @@ export const getUserById = async(req,res) => {
         const users = await AuthUsers.findById(id).select(['-password']);
         res.status(200).json(users);
     }catch(error) {
-        res.status(404).json({message: "Something went wrong!!"});
+        res.status(404).json({message: "Something went wrong at server!!"});
         console.log(error);
     }
 };
@@ -69,7 +69,19 @@ export const postFollowing = async(req,res) => {
         const users = await AuthUsers.findByIdAndUpdate(id, {$push: {followings: {"userId": userId, "name": name}}}).select(['-password']);
         res.status(200).json({result: users});
     }catch(error) {
-        res.status(404).json({message: "Something went wrong!!"});
+        res.status(404).json({message: "Something went wrong at server!!"});
+        console.log(error);
+    }
+};
+
+export const unfollow = async(req,res) => {
+    const { id } = req.params;
+    const { userId } = req.body;
+    try {
+        const users = await AuthUsers.findByIdAndUpdate(id, {$pull: {followings: {"_id": userId}}}).select(['-password']);
+        res.status(200).json({result: users});
+    }catch(error) {
+        res.status(404).json({message: "Something went wrong at server!!"});
         console.log(error);
     }
 };

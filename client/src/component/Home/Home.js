@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Home.css";
+
 import Navbar from "../Navbar/Navbar";
 import Sidebar from "../Sidebar/Sidebar";
 import Menu from "../Menu/Menu";
@@ -26,7 +27,6 @@ const Home = () => {
                 dispatch({
                     type: LOGOUT
                 });
-                //logouts();
                 history.push("/");
                 setUser(null);
             }

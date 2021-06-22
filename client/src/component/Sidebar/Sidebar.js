@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import "./Sidebar.css";
+
 import Avatar from '@material-ui/core/Avatar';
-import img3 from "../#Images/img4.png";
+import { avatar1 } from "../Images/Images";
 
 import { postFollowings } from "../#Redux/Actions/Auth_Action";
+import API from "../#Api/Api";
+import pusher from "../Pusher/Pusher";
+
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import Pusher from "pusher-js";
-import API from "../#Api/Api";
 
 const Sidebar = () => {
 
@@ -24,10 +26,6 @@ const Sidebar = () => {
     };
 
     useEffect(() => {
-        const pusher = new Pusher(process.env.REACT_APP_PUSHER, {
-            cluster: process.env.REACT_APP_CLUSTER
-        });
-    
         const channels = pusher.subscribe("users");
             channels.bind("updated", ((data) => {
                 API.get("/auth")
@@ -63,10 +61,10 @@ const Sidebar = () => {
             <div className="sidebar_menu">
                 {User && User.filter(a => a._id !== user?.result._id).map((arr) => (
                     currUser.length>0 ? (
-                        currUser.filter(ar => ar.userId !== arr._id) .map(() => (
+                        currUser.filter(ar => ar.userId !== arr._id).map(() => (
                             <div className="sidebar_container" key={arr._id}>
                                 <Link className="sidebar_main" to={`/profile/${arr._id}`}>
-                                    <Avatar src={img3}/>
+                                    <Avatar src={avatar1}/>
                                     <p> {arr.name} </p>
                                 </Link>
                                 <div className="sidebar_follow" onClick={(() => handelFollow(arr._id))}>
@@ -77,7 +75,7 @@ const Sidebar = () => {
                     ): (
                         <div className="sidebar_container" key={arr._id}>
                             <Link className="sidebar_main" to={`/profile/${arr._id}`}>
-                                <Avatar src={img3}/>
+                                <Avatar src={avatar1}/>
                                 <p> {arr.name} </p>
                             </Link>
                             <div className="sidebar_follow" onClick={(() => handelFollow(arr._id, arr.name))}>

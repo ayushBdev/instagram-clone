@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import "./Navbar.css";
-import logo from "../#Images/logo.jpg";
-import img from "../#Images/img.png";
+
+import { logos, avatar3 } from "../Images/Images";
 import SearchIcon from '@material-ui/icons/Search';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import { Avatar, IconButton, Dialog, DialogActions } from '@material-ui/core';
 
+import { LOGOUT, SPINNER } from "../#Redux/Actions/Types";
+import { warning } from "../Notifications/Notification";
+import Upload from "../Upload/Upload";
+
 import { useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
-import { LOGOUT } from "../#Redux/Actions/Types";
-import Upload from "../Upload/Upload";
-import { Logouts } from "../Notifications/Notifications";
 
 const Navbar = () => {
 
@@ -24,10 +25,14 @@ const Navbar = () => {
     const history = useHistory();
 
     const logout = () => {
+        warning("Logout Successfully");
         dispatch({
             type: LOGOUT
         });
-        Logouts();
+        dispatch({
+            type: SPINNER,
+            payload: false
+        });
         history.push("/");
     };
 
@@ -42,7 +47,7 @@ const Navbar = () => {
     return (
         <div className="navbar">
             <Link className="logo" to="/">
-                <img src={logo}/>
+                <img src={logos} alt=""/>
                 <p> Instagram </p>
             </Link>
             <div className="search">
@@ -60,7 +65,7 @@ const Navbar = () => {
             </div>
             <div className="navbar_menu">
                 <Link to={`/profile/${id}`} className="navbar_link">
-                    <Avatar src={img}/>
+                    <Avatar src={avatar3}/>
                     <p> {user?.result.name} </p>
                 </Link>
                 <IconButton onClick={logout}> <ExitToAppIcon/> </IconButton>

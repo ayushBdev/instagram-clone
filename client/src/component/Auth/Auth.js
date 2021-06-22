@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Auth.css";
-import img1 from "../#Images/auth.png";
-import logos from "../#Images/logo.jpg";
+
+import { logos, auth } from "../Images/Images";
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
+import Loader from "react-loader-spinner";
 
+import { SPINNER } from "../#Redux/Actions/Types";
 import { signin, signup } from './../#Redux/Actions/Auth_Action';
-import { useDispatch } from "react-redux";
+import { warning } from "../Notifications/Notification";
+import API from "../#Api/Api";
+
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { wrongPassword } from "../Notifications/Notifications";
 
 const Auth = () => {
 
@@ -26,6 +30,8 @@ const Auth = () => {
     const dispatch = useDispatch();
     const history = useHistory();
 
+    const spinner = useSelector(state => state.SpinnerReducer);
+
     const handelShowPassword = () => {
         setshowPassword(preValue => !preValue);
     };
@@ -41,26 +47,41 @@ const Auth = () => {
 
     const handelSubmit = (event) => {
         event.preventDefault();
+        dispatch({
+            type: SPINNER,
+            payload: true
+        });
         if(isSignup) {
             if(form.password === form.confirmPassword) {
                 dispatch(signup(form,history));
             } else {
-                wrongPassword();
+                warning("Password Mismatch");
             }
         } else {
             dispatch(signin(form,history));
         }
     };
 
+    useEffect(async() => {
+        try {
+            await API.get("/tests")
+        }catch(err) {
+            dispatch({
+                type: SPINNER,
+                payload: false
+            });
+        }
+    }, []);
+
 
     return (
         <div className="auth">
-            <div className="logo_img">
-                <img src={img1}/>
+            <div className={spinner ? "logo_img opacitys" : "logo_img"}>
+                <img src={auth} alt=""/>
             </div>
-            <div className="auth_form">
+            <div className={spinner ? "auth_form opacitys" : "auth_form"}>
                 <div className="logo">
-                    <img src={logos}/>
+                    <img src={logos} alt=""/>
                     <p> Instagram </p>
                 </div>
                 <form className="auth_input" onSubmit={handelSubmit}>
@@ -112,6 +133,16 @@ const Auth = () => {
                 <div className="switch_btn" onClick={switchMode}>
                     {isSignup ? "Already have a account? Log In" : "Don't have a account. Sign Up"}
                 </div>
+            </div>
+            <div className="loader">
+                <Loader
+                    type="Oval"
+                    color="#00BFFF"
+                    height={100}
+                    width={100}
+                    timeout={500000000}
+                    visible={spinner}
+                />
             </div>
         </div>
     );

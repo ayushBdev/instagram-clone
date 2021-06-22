@@ -1,0 +1,112 @@
+@mixin flex ($a,$b,$c) {
+    display: flex;
+    flex-direction: $a;
+    justify-content: $b;
+    align-items: $c;
+}
+
+.error {
+    @include flex(column,space-around,center);
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    overflow: hidden
+}
+
+.error_text {
+    @include flex(column,space-around,center);
+    width: 100%;
+    height: 20vh;
+    color: white;
+    p {
+        font-size: 12vw;
+        font-family: 'Open Sans', sans-serif;
+    }
+    p1 {
+        font-size: 2vw;
+    }
+}
+
+.error_btns {
+    @include flex(row,center,center);
+    width: 100%;
+}
+
+.error_btn1 {
+    text-decoration: none;
+    color: black;
+    padding: 20px 40px;
+    background-color: #FFE532;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.error_btn2 {
+    text-decoration: none;
+    color: #FFE532;
+    padding: 10px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    letter-spacing: 0.5px;
+    &:hover {
+        color: #f6d810;
+        padding: 10px;
+        border: 1px solid #f6d810;
+    }
+}
+
+.error_footer {
+    width: 50%;
+    text-align: center;
+    p {
+        font-size: 14px;
+        letter-spacing: 0.5px;
+        color: gray;
+    }
+}
+
+@media only screen and (max-width: 960px) {
+    .error_text {
+        p {
+            font-size: 15vw;
+        }
+        p1 {
+            font-size: 2.5vw;
+        }
+    }
+    .error_btns {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .error_text {
+        p {
+            font-size: 15vw;
+        }
+        p1 {
+            font-size: 3vw;
+        }
+    }
+    .error_btns {
+        width: 65%;
+    }
+}
+
+
+@media only screen and (max-width: 500px) {
+    .error_text {
+        p {
+            font-size: 20vw;
+        }
+        p1 {
+            font-size: 4vw;
+        }
+    }
+    .error_btns {
+        width: 80%;
+    }
+}

@@ -1,5 +1,6 @@
 import * as api from "../../#Api/Api";
 import { CREATE, CREATE_COMMENTS, LIKE_POST, FETCH_POST } from "./Types";
+import { success, warning } from "../../Notifications/Notification";
 
 export const createPost = (post) => async(dispatch) => {
     try{
@@ -8,8 +9,10 @@ export const createPost = (post) => async(dispatch) => {
             type: CREATE, 
             payload: data
         });
+        success("🦄 Post created Successfully");
     }catch(err) {
         console.log(err);
+        warning(err.response.data.message);
     }
 };
 
@@ -22,6 +25,7 @@ export const getPostsByIds = (id) => async(dispatch) => {
         });
     }catch(err) {
         console.log(err);
+        warning(err.response.data.message);
     }
 };
 
@@ -32,8 +36,10 @@ export const addComments = (id, val) => async(dispatch) => {
             type: CREATE_COMMENTS, 
             payload: data
         });
+        success("Comment added Successfully");
     } catch(err) {
         console.log(err);
+        warning(err.response.data.message);
     }
 };
 
@@ -44,7 +50,9 @@ export const likePosts = (id, val) => async(dispatch) => {
             type: LIKE_POST, 
             payload: data
         });
+        success("Post liked");
     } catch(err) {
         console.log(err);
+        warning(err.response.data.message);
     }
 };

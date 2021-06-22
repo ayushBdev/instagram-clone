@@ -126,3 +126,11 @@
         background-color: white;
     }
 }
+
+.spinner {
+    @include flex(row, center, center);
+    position: relative;
+    overflow: hidden;
+    top: 0;
+    z-index: 999;
+}
